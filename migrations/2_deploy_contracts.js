@@ -1,5 +1,5 @@
 var KostaToken = artifacts.require("./KostaToken.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(KostaToken);
+  deployer.deploy(KostaToken, 21000000);
 };

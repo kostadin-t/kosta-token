@@ -1,13 +1,20 @@
 pragma solidity ^0.4.2;
 
 contract KostaToken {
-	// Constructor
-	// Set the total number of tokens
-	// Read the total number of tokens
+
+	string public name = "KostaToken";
+
+	string public symbol = "KOSTA";
+
+	string public standard = "KostaToken v1.0";
+
 
 	uint256 public totalSupply;
 
-	constructor() public {
-		totalSupply = 21000000;
+	mapping(address => uint256) public balanceOf;
+
+	constructor(uint256 _initialSupply) public {
+		balanceOf[msg.sender] = _initialSupply;
+		totalSupply = _initialSupply;
 	}
 }
