@@ -43,4 +43,14 @@ contract KostaTokenSale {
 		Sell(msg.sender, _numberOfTokens);
 
 	}
+
+	//Ending the sale
+	function endSale() public {
+		//Require admin
+		require(msg.sender == admin);
+		//Transfer remaining tokens to admin
+		require(tokenContract.transfer(admin, tokenContract.balanceOf(this)));
+		//Destroy contract
+		selfdestruct(admin);
+	}
 }
